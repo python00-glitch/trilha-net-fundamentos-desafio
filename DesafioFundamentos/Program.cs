@@ -3,44 +3,44 @@
 // Coloca o encoding para UTF8 para exibir acentuação
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-decimal precoInicial = 0;
-decimal precoPorHora = 0;
-
-Console.WriteLine("Seja bem vindo ao sistema de estacionamento!\n" +
-                  "Digite o preço inicial:");
-precoInicial = Convert.ToDecimal(Console.ReadLine());
-
-Console.WriteLine("Agora digite o preço por hora:");
-precoPorHora = Convert.ToDecimal(Console.ReadLine());
+Console.Clear();
 
 // Instancia a classe Estacionamento, já com os valores obtidos anteriormente
-Estacionamento es = new Estacionamento(precoInicial, precoPorHora);
+Estacionamento es = new();
 
-string opcao = string.Empty;
+// Removi todas linhas que mostrava mensagens para pegar informações do 'precoInicial' e 'precoPorHora', e fiz um método na classe
+es.Apresentar();
+
 bool exibirMenu = true;
 
 // Realiza o loop do menu
 while (exibirMenu)
 {
     Console.Clear();
-    Console.WriteLine("Digite a sua opção:");
     Console.WriteLine("1 - Cadastrar veículo");
     Console.WriteLine("2 - Remover veículo");
     Console.WriteLine("3 - Listar veículos");
     Console.WriteLine("4 - Encerrar");
+    Console.Write("Digite a sua opção: ");
 
     switch (Console.ReadLine())
     {
         case "1":
+            Console.ForegroundColor = ConsoleColor.Green;
             es.AdicionarVeiculo();
+            Console.ResetColor();
             break;
 
         case "2":
+            Console.ForegroundColor = ConsoleColor.Green;
             es.RemoverVeiculo();
+            Console.ResetColor();
             break;
 
         case "3":
+            Console.ForegroundColor = ConsoleColor.Green;
             es.ListarVeiculos();
+            Console.ResetColor();
             break;
 
         case "4":
@@ -48,11 +48,16 @@ while (exibirMenu)
             break;
 
         default:
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Black;
             Console.WriteLine("Opção inválida");
+            Console.ResetColor();
             break;
     }
 
+    Console.ForegroundColor = ConsoleColor.Magenta;
     Console.WriteLine("Pressione uma tecla para continuar");
+    Console.ResetColor();
     Console.ReadLine();
 }
 
