@@ -1,4 +1,4 @@
-# DIO - Trilha .NET - Fundamentos
+# DIO - Trilha .NET - Fundamentos - Completo (IMPLEMENTADO E ATUALIZADO)
 www.dio.me
 
 ## Desafio de projeto
